@@ -1,6 +1,6 @@
 # [Bootstrap-Stylus v3.0.0]
 
-Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat). This a port of the framework using Stylus as the CSS preprocessor.
+Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat). This is a port of the framework using Stylus as the CSS preprocessor.
 
 
 ## Compiling CSS and JavaScript
@@ -73,4 +73,4 @@ For more information on SemVer, please visit [http://semver.org/](http://semver.
 
 ## Copyright and license
 
-Copyright 2012 Twitter, Inc under [the Apache 2.0 license](LICENSE).
+Copyright 2012 Twitter, Inc under [the Apache 2.0 license](LICENSE). With changed files from me.

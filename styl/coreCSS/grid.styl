@@ -1,0 +1,83 @@
+//
+// Grid system
+// --------------------------------------------------
+
+// Set the container width and override it for fixed navbars in media queries
+.container 
+  container-fixed()
+
+// Mobile-first defaults
+.row 
+  make-row()
+
+$grid-columns-base
+  position relative
+  // Prevent columns from collapsing when empty
+  min-height 1px
+  // Inner gutter via padding
+  padding-left  (grid-gutter-width / 2)
+  padding-right (grid-gutter-width / 2)
+
+for i in (1..12)
+  .col-{i}
+  .col-sm-{i}
+  .col-lg-{i}
+    @extend $grid-columns-base
+
+//
+// Container and grid column sizing
+//
+
+// Tiny device columns (smartphones)
+$float-left
+  float left
+
+for i in (1..12)
+  .col-{i}
+    @extend $float-left  
+    width ((i / grid-columns)*100)%
+
+
+// Small device columns (phones to tablets)
+@media media-screen-tablet
+  .container 
+    max-width: container-tablet
+  
+  $float-left-screen-tablet
+    float left
+
+  for i in (1..12)
+    .col-sm-{i}
+      @extend $float-left-screen-tablet  
+      width ((i / grid-columns)*100)%
+  
+  // Push and pull columns for source order changes
+  for i in (1..11)
+    .col-push-{i}
+      left ((i / grid-columns)*100)%
+    .col-pull-{i}
+      right ((i / grid-columns)*100)%  
+
+// // Medium and large device columns (desktop and up)
+@media media-screen-desktop
+  .container 
+     max-width container-desktop
+
+  $float-left-screen-desktop
+    float left
+
+  for i in (1..12)
+    .col-lg-{i}
+      @extend $float-left-screen-desktop  
+      width ((i / grid-columns)*100)%
+  
+  // Offsets
+  for i in (1..11)
+    .col-offset-{i}
+      margin-left ((i / grid-columns)*100)%  
+
+@media media-screen-large-desktop
+  .container 
+    max-width: container-large-desktop
+  
+

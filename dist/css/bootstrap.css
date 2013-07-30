@@ -1456,13 +1456,13 @@ textarea.form-control {
   margin-top: 0;
   margin-left: 10px;
 }
-.form-control.input-large {
+.input-large {
   height: 56px;
   padding: 14px 16px;
   font-size: 18px;
   border-radius: 6px;
 }
-.form-control.input-small {
+.input-small {
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
@@ -1475,6 +1475,10 @@ select.input-large {
 select.input-small {
   height: 30px;
   line-height: 30px;
+}
+textarea.input-large,
+textarea.input-small {
+  height: auto;
 }
 .has-warning .help-block,
 .has-warning .control-label {
@@ -1805,11 +1809,15 @@ fieldset[disabled] .btn-link:focus {
   font-size: 18px;
   border-radius: 6px;
 }
-.btn-small {
+.btn-small,
+.btn-mini {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+}
+.btn-mini {
+  padding: 3px 5px;
 }
 .btn-block {
   display: block;
@@ -2103,13 +2111,13 @@ input[type="button"].btn-block {
 .list-group {
   margin-bottom: 20px;
   padding-left: 0;
-  background-color: ;
 }
 .list-group-item {
   position: relative;
   display: block;
   padding: 10px 30px 10px 15px;
   margin-bottom: -1px;
+  background-color: #fff;
   border: 1px solid #ddd;
 }
 .list-group-item:first-child {
@@ -2755,6 +2763,8 @@ button.close {
 }
 .btn-group > .btn:hover,
 .btn-group-vertical > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group-vertical > .btn:focus,
 .btn-group > .btn:active,
 .btn-group-vertical > .btn:active {
   z-index: 2;

@@ -100,33 +100,4 @@
   &:active 
     z-index: 2
 
-// Inline forms
-// --------------------------------------------------
 
-form-inline() 
-  .form-control
-  .radio
-  .checkbox 
-    display inline-block
-  .radio
-  .checkbox 
-    margin-top 0
-    margin-bottom 0
-
-.form-inline
-  form-inline()
-// Horizontal forms
-// --------------------------------------------------
-// Horizontal forms are built on grid classes.
-
-.form-horizontal .control-label
-  padding-top 9px
-
-.form-horizontal 
-  .form-group 
-    make-row()
-
-// Only right align form labels here when the columns stop stacking
-@media media-screen-tablet
-  .form-horizontal .control-label 
-    text-align right

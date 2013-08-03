@@ -40,12 +40,13 @@ input[type="search"]
 input[type="radio"]
 input[type="checkbox"] 
   margin 4px 0 0
-  margin-top 1px \9 /* IE8-9 */
+  margin-top 1px 
+  /* IE8-9 */
   line-height normal
 
 // Set the height of select and file controls to match text inputs
 input[type="file"] 
-  display: block
+  display block
 
 // Make multiple select elements height not fixed
 select[multiple]
@@ -68,13 +69,10 @@ input[type="checkbox"]:focus
 // Fix for Chrome number input
 // Setting certain font-sizes causes the `I` bar to appear on hover of the bottom increment button.
 // See https://github.com/twitter/bootstrap/issues/8350 for more.
-input[type="number"] {
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button  {
-    height: auto;
-  }
-}
-
+input[type="number"] 
+  &::-webkit-outer-spin-button
+  &::-webkit-inner-spin-button  
+    height auto
 
 // Placeholder
 //
@@ -203,15 +201,17 @@ input[type="number"] {
 // element gets special love because it's special, and that's a fact!
 
 .input-large 
-  height: input-height-large
-  padding: padding-large-vertical padding-large-horizontal
-  font-size: font-size-large
-  border-radius: border-radius-large
+  height input-height-large
+  padding padding-large-vertical padding-large-horizontal
+  font-size font-size-large
+  line-height line-height-large
+  border-radius border-radius-large
 .input-small 
-  height: input-height-small
-  padding: padding-small-vertical padding-small-horizontal
-  font-size: font-size-small
-  border-radius: border-radius-small
+  height input-height-small
+  padding padding-small-vertical padding-small-horizontal
+  font-size font-size-small
+  line-height line-height-small
+  border-radius border-radius-small
  
 select 
   &.input-large 
@@ -251,3 +251,36 @@ textarea
   margin-bottom 10px
   color lighten(text-color, 25) // lighten the text some for contrast
 
+// Inline forms
+// --------------------------------------------------
+
+form-inline() 
+  .form-control
+  .radio
+  .checkbox 
+    display inline-block
+  .radio
+  .checkbox 
+    margin-top 0
+    margin-bottom 0
+
+.form-inline
+  form-inline()
+
+// Horizontal forms
+// --------------------------------------------------
+// Horizontal forms are built on grid classes.
+
+.form-horizontal .control-label
+.form-horizontal .radio-inline 
+.form-horizontal .checkbox-inline 
+  padding-top 9px
+
+.form-horizontal 
+  .form-group 
+    make-row()
+
+// Only right align form labels here when the columns stop stacking
+@media media-screen-tablet
+  .form-horizontal .control-label 
+    text-align right

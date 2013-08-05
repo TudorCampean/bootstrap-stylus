@@ -58,38 +58,38 @@ headings-line-height =    1.1
 // Media queries breakpoints
 // --------------------------------------------------
 
-// Tiny screen / phone
-screen-tiny =                480px
-screen-phone =               480px
-media-screen-tiny = "(min-width: " + screen-tiny + ")"
-media-screen-phone = "(min-width: " + screen-phone + ")"
-screen-media-screen-tiny = "screen and (min-width: " + screen-tiny + ")"
-screen-media-screen-phone = "screen and (min-width: " + screen-phone + ")"
+// Extra small screen / phone
+screen-xsmall =                480px
+screen-phone =                 480px
+media-screen-xsmall =          "(min-width: " + screen-xsmall + ")"
+media-screen-phone =           "(min-width: " + screen-phone + ")"
+screen-media-screen-xsmall =   "screen and (min-width: " + screen-xsmall + ")"
+screen-media-screen-phone =    "screen and (min-width: " + screen-phone + ")"
 // Small screen / tablet
-screen-small =               768px
-screen-tablet =              768px
-media-screen-small = "(min-width: " + screen-small + ")"
-media-screen-tablet = "(min-width: " + screen-tablet + ")"
-screen-media-screen-small = "screen and (min-width: " + screen-small + ")"
-screen-media-screen-tablet = "screen and (min-width: " + screen-tablet + ")"
+screen-small =                 768px
+screen-tablet =                768px
+media-screen-small =           "(min-width: " + screen-small + ")"
+media-screen-tablet =          "(min-width: " + screen-tablet + ")"
+screen-media-screen-small =    "screen and (min-width: " + screen-small + ")"
+screen-media-screen-tablet =   "screen and (min-width: " + screen-tablet + ")"
 // Medium screen / desktop
-screen-medium =              992px
-screen-desktop =             992px
-media-screen-medium = "(min-width: " + screen-medium + ")"
-media-screen-desktop = "(min-width: " + screen-desktop + ")"
-screen-media-screen-medium = "screen and (min-width: " + screen-medium + ")"
-screen-media-screen-desktop = "screen and (min-width: " + screen-desktop + ")"
+screen-medium =                992px
+screen-desktop =               992px
+media-screen-medium =          "(min-width: " + screen-medium + ")"
+media-screen-desktop =         "(min-width: " + screen-desktop + ")"
+screen-media-screen-medium =   "screen and (min-width: " + screen-medium + ")"
+screen-media-screen-desktop =  "screen and (min-width: " + screen-desktop + ")"
 // So media queries don't overlap when required, provide a maximum
-screen-small-max =           (screen-medium - 1)
-screen-tablet-max =          (screen-medium - 1)
-media-tablet-minmax = "(min-width: "+screen-tablet+") and (max-width: "+screen-tablet-max+")"
+screen-small-max =             (screen-medium - 1)
+screen-tablet-max =            (screen-medium - 1)
+media-tablet-minmax =          "(min-width: "+screen-tablet+") and (max-width: "+screen-tablet-max+")"
 
 // Large screen / wide desktop
-screen-large=               1200px
-screen-large-desktop=       1200px
-media-screen-large = "(min-width: " + screen-large + ")"
-media-screen-large-desktop = "(min-width: " + screen-large-desktop + ")"
-screen-media-screen-large = "screen and (min-width: " + screen-large + ")"
+screen-large=                       1200px
+screen-large-desktop=               1200px
+media-screen-large =                "(min-width: " + screen-large + ")"
+media-screen-large-desktop =        "(min-width: " + screen-large-desktop + ")"
+screen-media-screen-large =         "screen and (min-width: " + screen-large + ")"
 screen-media-screen-large-desktop = "screen and (min-width: " + screen-large-desktop + ")"
 
 // Container sizes
@@ -190,6 +190,7 @@ input-bg-disabled =              gray-lighter
 
 input-border =                   #cccccc
 input-border-radius =            border-radius-base
+input-border-focus =             #66afe9
 
 input-color-placeholder =        gray-light
 
@@ -242,6 +243,7 @@ zindex-modal =             1050
 navbar-height =                    50px
 navbar-color =                     #777
 navbar-bg =                        #eee
+navbar-border-radius =             border-radius-base
 navbar-padding-horizontal =        floor(grid-gutter-width / 2)  // ~15px
 navbar-padding-vertical =          ((navbar-height - line-height-computed) / 2)
 

@@ -11,9 +11,9 @@
   height 0
   margin-left 2px
   vertical-align middle
-  border-top   4px solid dropdown-caret-color
-  border-right 4px solid transparent
-  border-left  4px solid transparent
+  border-top   caret-width-base solid dropdown-caret-color
+  border-right caret-width-base solid transparent
+  border-left  caret-width-base solid transparent
   content ""
 
 // The dropdown wrapper (div)
@@ -68,7 +68,7 @@
     text-decoration none
     color dropdown-link-hover-color
     gradient-vertical(dropdown-link-hover-bg ,, darken(dropdown-link-hover-bg, 5))
-
+    background-color darken(dropdown-link-hover-bg, 5)
 
 // Active state
 // ------------
@@ -80,7 +80,7 @@
     text-decoration none
     outline 0
     gradient-vertical(dropdown-link-active-bg ,, darken(dropdown-link-active-bg, 5))
-
+    background-color darken(dropdown-link-active-bg, 5)
 // Disabled state
 // --------------
 // Gray out text and ensure the hover/focus state remains gray

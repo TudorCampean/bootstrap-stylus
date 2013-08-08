@@ -3,12 +3,28 @@
 // --------------------------------------------------
 
 // Button carets
-.btn .caret 
-  border-top-color btn-default-color
+//
+// Match the button text color to the arrow/caret for indicating dropdown-ness.
 
-.dropup .btn .caret 
-  border-bottom-color btn-default-color
+.caret 
+  .btn-default & 
+    border-top-color btn-default-color
+  .btn-primary &,
+  .btn-success &,
+  .btn-warning &,
+  .btn-danger &,
+  .btn-info & 
+    border-top-color #fff
 
+.dropup .caret 
+  .btn-default & 
+    border-bottom-color btn-default-color
+  .btn-primary &,
+  .btn-success &,
+  .btn-warning &,
+  .btn-danger &,
+  .btn-info & 
+    border-bottom-color #fff
 
 // Make the div behave like a button
 .btn-group
@@ -25,6 +41,9 @@
     &:active
     &.active 
       z-index: 2
+    &:focus 
+      // Remove focus outline when dropdown JS adds it after closing the menu
+      outline none
 
 // Prevent double borders when buttons are next to each other
 .btn-group .btn + .btn 
@@ -111,11 +130,11 @@
 
 // Carets in other button sizes
 .btn-lg .caret 
-  border-width 5px
+  border-width caret-width-large
 
 // Upside down carets for .dropup
 .dropup .btn-lg .caret 
-  border-bottom-width 5px
+  border-bottom-width caret-width-large
 
 // Vertical button groups
 // ----------------------

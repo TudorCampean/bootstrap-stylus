@@ -121,17 +121,17 @@ transition-transform(transition)
 // Transformations
 mrotate(degrees) 
   -webkit-transform rotate(degrees)
-  -ms-transform rotate(degrees)
+  -ms-transform rotate(degrees) //IE9+
   transform rotate(degrees)
 
 mscale(ratio) 
   -webkit-transform scale(ratio)
-  -ms-transform scale(ratio)
+  -ms-transform scale(ratio) //IE9+
   transform scale(ratio)
 
 mtranslate(x, y) 
   -webkit-transform translate(x,y)
-  -ms-transform translate(x,y)
+  -ms-transform translate(x,y) //IE9+
   transform translate(x,y)
 
 mskew(x, y) 
@@ -171,7 +171,7 @@ box-sizing(boxmodel)
 user-select(select) 
   -webkit-user-select select
   -moz-user-select select
-  -ms-user-select select
+  -ms-user-select select // IE10+
   -o-user-select select
   user-select select
 
@@ -216,7 +216,6 @@ opacity(opacity)
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
 gradient-horizontal(start-color= #555 ,start-percent = 0% , end-color= #333 , end-percent= 100%) 
-  background-color end-color
   background-image -webkit-gradient(linear, start-percent top, end-percent top, from(start-color), to(end-color)) // Safari 4+, Chrome 2+
   background-image -webkit-linear-gradient(left, color-stop(start-color start-percent), color-stop(end-color end-percent)) // Safari 5.1+, Chrome 10+
   background-image -moz-linear-gradient(left, start-color start-percent, end-color end-percent) // FF 3.6+
@@ -229,7 +228,6 @@ gradient-horizontal(start-color= #555 ,start-percent = 0% , end-color= #333 , en
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
 gradient-vertical(start-color = #555, start-percent = 0%, end-color = #333, end-percent = 100%) 
-  background-color end-color
   background-image -webkit-gradient(linear, left start-percent, left end-percent, from(start-color), to(end-color)) // Safari 4+, Chrome 2+
   background-image -webkit-linear-gradient(top, start-color, start-percent, end-color, end-percent) // Safari 5.1+, Chrome 10+
   background-image  -moz-linear-gradient(top, start-color start-percent, end-color end-percent) // FF 3.6+
@@ -273,7 +271,6 @@ gradient-vertical(start-color = #555, start-percent = 0%, end-color = #333, end-
 //     background-repeat: no-repeat
 //   }
 gradient-striped(color = #555, angle = 45deg)
-    background-color: color
     background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255,255,255,.15)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.15)), color-stop(.75, rgba(255,255,255,.15)), color-stop(.75, transparent), to(transparent))
     background-image: -webkit-linear-gradient(angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
     background-image: -moz-linear-gradient(angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent)
@@ -289,19 +286,60 @@ container-fixed()
   clearfix()
 
 // Creates a wrapper for a series of columns
-make-row() 
+make-row(gutter = grid-gutter-width) 
   // Then clear the floated columns
   clearfix()
 
   @media media-screen-small
-    margin-left  (grid-gutter-width / -2)
-    margin-right (grid-gutter-width / -2)
+    .container &
+      margin-left  (gutter / -2)
+      margin-right (gutter / -2)
 
   // Negative margin nested rows out to align the content of columns
   .row 
-    margin-left:  (grid-gutter-width / -2)
-    margin-right: (grid-gutter-width / -2)
+    margin-left:  (gutter / -2)
+    margin-right: (gutter / -2)
 
+// Generate the columns
+make-column(columns , gutter = grid-gutter-width) 
+  position relative
+  // Prevent columns from collapsing when empty
+  min-height 1px
+  // Inner gutter via padding
+  padding-left  (gutter / 2)
+  padding-right (gutter / 2)
+
+  // Calculate width based on number of columns available
+  @media media-screen-tablet
+    float left
+    width ((columns / grid-columns)*100)%
+
+// Generate the column offsets
+make-column-offset(columns) 
+  @media media-screen-tablet
+    margin-left ((columns / grid-columns)*100)%
+  
+make-column-push(columns) 
+  @media media-screen-tablet
+    left ((columns / grid-columns)*100)%
+
+make-column-pull(columns) 
+  @media media-screen-tablet
+    right ((columns / grid-columns)*100)%
+  
+// Generate the small columns
+make-small-column(columns , gutter = grid-gutter-width) 
+  position relative
+  float left
+  // Prevent columns from collapsing when empty
+  min-height 1px
+  // Inner gutter via padding
+  padding-left  (gutter / 2)
+  padding-right (gutter / 2)
+  
+  // Calculate width based on number of columns available
+  @media screen-small-max
+    width ((columns / grid-columns)*100)%
 
 // Reset filters for IE
 //
@@ -335,6 +373,14 @@ nav-divider(color = #e5e5e5)
   overflow hidden
   background-color color
 
+// Panels
+// -------------------------
+panel-variant(border, heading-text-color, heading-bg-color, heading-border) 
+  border-color border
+  .panel-heading 
+    color heading-text-color
+    background-color heading-bg-color
+    border-color heading-border
 
 // Alerts
 // -------------------------
@@ -358,9 +404,10 @@ btn-pseudo-states(color, background, border)
   &:hover
   &:focus
   &:active
-  &.active 
-    background-color: darken(background, 5)
-    border-color: darken(border, 10)
+  &.active
+    color color 
+    background-color: darken(background, 8)
+    border-color: darken(border, 12)
   &.disabled
   &[disabled]
   fieldset[disabled] & 

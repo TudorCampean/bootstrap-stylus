@@ -79,11 +79,6 @@ media-screen-medium =          "(min-width: " + screen-medium + ")"
 media-screen-desktop =         "(min-width: " + screen-desktop + ")"
 screen-media-screen-medium =   "screen and (min-width: " + screen-medium + ")"
 screen-media-screen-desktop =  "screen and (min-width: " + screen-desktop + ")"
-// So media queries don't overlap when required, provide a maximum
-screen-small-max =             (screen-medium - 1)
-screen-tablet-max =            (screen-medium - 1)
-media-tablet-minmax =          "(min-width: "+screen-tablet+") and (max-width: "+screen-tablet-max+")"
-
 // Large screen / wide desktop
 screen-large=                       1200px
 screen-large-desktop=               1200px
@@ -91,6 +86,12 @@ media-screen-large =                "(min-width: " + screen-large + ")"
 media-screen-large-desktop =        "(min-width: " + screen-large-desktop + ")"
 screen-media-screen-large =         "screen and (min-width: " + screen-large + ")"
 screen-media-screen-large-desktop = "screen and (min-width: " + screen-large-desktop + ")"
+// So media queries don't overlap when required, provide a maximum
+screen-small-max =             (screen-medium - 1)
+screen-tablet-max =            (screen-desktop - 1)
+screen-desktop-max =           (screen-large-desktop - 1);
+
+media-tablet-minmax =          "(min-width: "+screen-tablet+") and (max-width: "+screen-tablet-max+")"
 
 // Container sizes
 // --------------------------------------------------
@@ -138,6 +139,8 @@ border-radius-small =            3px
 
 component-active-bg =            brand-primary
 
+caret-width-base =               4px
+caret-width-large =              5px
 
 // Tables
 // -------------------------
@@ -156,31 +159,33 @@ table-border-color =                 #ddd // table and cell border
 // Buttons
 // -------------------------
 
-btn-default-color =              #fff
-btn-default-bg =                 #474949
-btn-default-border =             btn-default-bg
+btn-font-weight =                bold
 
-btn-primary-color =              btn-default-color
+btn-default-color =              #333
+btn-default-bg =                 #fff
+btn-default-border =             #ccc
+
+btn-primary-color =              #fff
 btn-primary-bg =                 brand-primary
-btn-primary-border =             btn-primary-bg
+btn-primary-border =             darken(btn-primary-bg, 5)
 
-btn-success-color =              btn-default-color
+btn-success-color =              #fff
 btn-success-bg =                 brand-success
-btn-success-border =             btn-success-bg
+btn-success-border =             darken(btn-success-bg, 5)
 
-btn-warning-color =              btn-default-color
+btn-warning-color =              #fff
 btn-warning-bg =                 brand-warning
-btn-warning-border =             btn-warning-bg
+btn-warning-border =             darken(btn-warning-bg, 5) 
 
-btn-danger-color =               btn-default-color
+btn-danger-color =               #fff
 btn-danger-bg =                  brand-danger
-btn-danger-border =              btn-danger-bg
+btn-danger-border =              darken(btn-danger-bg, 5)
 
-btn-info-color =                 btn-default-color
+btn-info-color =                 #fff
 btn-info-bg =                    brand-info
-btn-info-border =                btn-info-bg
+btn-info-border =                darken(btn-info-bg, 5)
 
-btn-hover-color =                btn-default-color
+btn-link-disabled-color =        gray-light
 
 // Forms
 // -------------------------
@@ -377,7 +382,7 @@ state-info-border =              darken(spin(state-info-bg ,-10), 7)
 // -------------------------
 tooltip-max-width =           200px
 tooltip-color =               #fff
-tooltip-bg =                  rgba(0,0,0,.9)
+tooltip-bg =                  #000
 
 tooltip-arrow-width =         5px
 tooltip-arrow-color =         tooltip-bg
@@ -401,6 +406,7 @@ popover-arrow-outer-fallback-color =  #999
 
 // Labels
 // -------------------------
+label-default-bg =       gray-light
 label-success-bg =       brand-success
 label-info-bg =          brand-info
 label-warning-bg =       brand-warning
@@ -425,10 +431,13 @@ modal-footer-border-color = modal-header-border-color
 
 // Alerts
 // -------------------------
+alert-padding =               15px
+alert-border-radius =         border-radius-base
+alert-link-font-weight =      bold
+
 alert-bg =                    state-warning-bg
 alert-text =                  state-warning-text
 alert-border =                state-warning-border
-alert-border-radius =         border-radius-base
 
 alert-success-bg =            state-success-bg
 alert-success-text =          state-success-text
@@ -521,11 +530,14 @@ accordion-border-color =      #e5e5e5
 // -------------------------
 badge-color =                 #fff
 badge-link-hover-color =      #fff
-
 badge-bg =                    gray-light
+
 badge-active-color =          link-color
 badge-active-bg =             #fff
 
+badge-font-weight =           bold
+badge-line-height =           1
+badge-border-radius =         10px
 
 // Breadcrumbs
 // -------------------------
@@ -538,16 +550,20 @@ breadcrumb-active-color =     gray-light
 carousel-text-shadow =             0 1px 2px rgba(0,0,0,.6)
 
 carousel-control-color =           #fff
-
-carousel-indicator-border-color =  #fff
+carousel-control-width =           15%
+carousel-control-opacity =         .5
+carousel-control-font-size =       20px;
 
 carousel-indicator-active-bg =     #fff
+carousel-indicator-border-color =  #fff
+
 carousel-caption-color =           #fff
 
 
 // Close
 // ------------------------
 close-color =                 #000
+close-font-weight =           bold
 close-text-shadow =           0 1px 0 #fff
 
 

@@ -158,18 +158,23 @@ dt
 dd 
   margin-left  0 // Undo browser default
 
-// Horizontal layout (like forms)
-.dl-horizontal 
-  dt 
-    float left
-    width (component-offset-horizontal - 20)
-    clear left
-    text-align right
-    text-overflow()
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+@media media-screen-tablet
+  .dl-horizontal 
+    dt 
+      float left
+      width (component-offset-horizontal - 20)
+      clear left
+      text-align right
+      text-overflow()
   
-  dd 
-    clearfix() // Clear the floated `dt` if an empty `dd` is present
-    margin-left component-offset-horizontal
+    dd 
+      margin-left component-offset-horizontal
+      clearfix() // Clear the floated `dt` if an empty `dd` is present
 
 // MISC
 // ----
@@ -204,7 +209,6 @@ blockquote
       content '\2014 \00A0' // EM DASH, NBSP
   // Float right with text-align: right
   &.pull-right 
-    float right
     padding-right 15px
     padding-left 0
     border-right 5px solid blockquote-border-color

@@ -65,7 +65,12 @@ module.exports = (grunt) ->
       scripts:
         files: 'styl/**/*.styl'
         tasks: 'css'
+    karma: 
+      unit:
+        configFile: 'karma.conf.js'
+        autoWatch: true
 
+  grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'

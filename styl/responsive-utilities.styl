@@ -36,71 +36,92 @@
   visibility hidden !important
 
 // Visibility utilities
-
-// For Phones
-.visible-sm 
+.visible-xs 
   responsive-visibility()
+  @media media-tablet-minmax
+    responsive-invisibility()
+  
+  @media media-desktop-minmax
+    responsive-invisibility()
+  
+  @media media-screen-large-desktop
+    responsive-invisibility()
+
+.visible-sm 
+  responsive-invisibility()
+  @media media-tablet-minmax
+    responsive-visibility()
+  
+  @media media-desktop-minmax
+    responsive-invisibility()
+  
+  @media media-screen-large-desktop
+    responsive-invisibility()
 
 .visible-md 
   responsive-invisibility()
+  @media media-tablet-minmax
+    responsive-invisibility()
+  
+  @media media-desktop-minmax
+    responsive-visibility()
+  
+  @media media-screen-large-desktop
+    responsive-invisibility()
 
 .visible-lg 
   responsive-invisibility()
+  @media media-tablet-minmax
+    responsive-invisibility()
+  
+  @media media-desktop-minmax
+    responsive-invisibility()
+  
+  @media media-screen-large-desktop
+    responsive-visibility()
 
+.hidden-xs 
+  responsive-invisibility()
+  @media media-tablet-minmax
+    responsive-visibility()
+  
+  @media media-desktop-minmax
+    responsive-visibility()
+  
+  @media media-screen-large-desktop
+    responsive-visibility()
 
 .hidden-sm 
-  responsive-invisibility()
+  responsive-visibility()
+  @media media-tablet-minmax
+    responsive-invisibility()
+  
+  @media media-desktop-minmax
+    responsive-visibility()
+  
+  @media media-screen-large-desktop
+    responsive-visibility()
 
 .hidden-md 
   responsive-visibility()
+  @media media-tablet-minmax
+    responsive-visibility()
+  
+  @media media-desktop-minmax
+    responsive-invisibility()
+  
+  @media media-screen-large-desktop
+    responsive-visibility()
 
 .hidden-lg 
   responsive-visibility()
-
-
-
-// Tablets & small desktops only
-@media media-tablet-minmax 
-  .visible-sm 
-    responsive-invisibility()
-  
-  .visible-md 
+  @media media-tablet-minmax
     responsive-visibility()
   
-  .visible-lg 
-    responsive-invisibility()
-  
-
-  .hidden-sm 
+  @media media-desktop-minmax
     responsive-visibility()
   
-  .hidden-md 
-    responsive-invisibility()
-  
-  .hidden-lg 
-    responsive-visibility()
-  
-
-
-// For desktops
-@media media-screen-desktop
-  .visible-sm 
-    responsive-invisibility()
-  
-  .visible-md 
-    responsive-invisibility()
-  
-  .visible-lg 
-    responsive-visibility()
-  
-
-  .hidden-sm 
-    responsive-visibility()
-  
-  .hidden-md 
-    responsive-visibility()
-  
-  .hidden-lg 
+  @media media-screen-large-desktop
     responsive-invisibility()
 
 // Print utilities

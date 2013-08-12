@@ -70,6 +70,7 @@ screen-small =                 768px
 screen-tablet =                768px
 media-screen-small =           "(min-width: " + screen-small + ")"
 media-screen-tablet =          "(min-width: " + screen-tablet + ")"
+media-screen-small-max =       "(max-width: " + screen-phone-max + ")"
 screen-media-screen-small =    "screen and (min-width: " + screen-small + ")"
 screen-media-screen-tablet =   "screen and (min-width: " + screen-tablet + ")"
 // Medium screen / desktop
@@ -87,23 +88,25 @@ media-screen-large-desktop =        "(min-width: " + screen-large-desktop + ")"
 screen-media-screen-large =         "screen and (min-width: " + screen-large + ")"
 screen-media-screen-large-desktop = "screen and (min-width: " + screen-large-desktop + ")"
 // So media queries don't overlap when required, provide a maximum
+screen-phone-max =             (screen-small - 1)
 screen-small-max =             (screen-medium - 1)
 screen-tablet-max =            (screen-desktop - 1)
 screen-desktop-max =           (screen-large-desktop - 1);
 
 media-tablet-minmax =          "(min-width: "+screen-tablet+") and (max-width: "+screen-tablet-max+")"
+media-desktop-minmax =          "(min-width: "+screen-desktop+") and (max-width: "+screen-desktop-max+")"
 
 // Container sizes
 // --------------------------------------------------
 
 // Small screen / tablet
-container-tablet =          728px
+container-tablet =          720px
 
 // Medium screen / desktop
 container-desktop =         940px
 
 // Large screen / wide desktop
-container-large-desktop =   1170px
+container-large-desktop =   1140px
 
 
 // Grid system
@@ -193,6 +196,8 @@ btn-link-disabled-color =        gray-light
 input-bg =                       #fff
 input-bg-disabled =              gray-lighter
 
+
+input-color =                    gray
 input-border =                   #cccccc
 input-border-radius =            border-radius-base
 input-border-focus =             #66afe9
@@ -203,8 +208,10 @@ input-height-base =              (line-height-computed + (padding-base-vertical 
 input-height-large =             (floor(font-size-large * line-height-large) + (padding-large-vertical * 2) + 2)
 input-height-small =             (floor(font-size-small * line-height-small) + (padding-small-vertical * 2) + 2)
 
+legend-color =                   gray-dark
 legend-border-color =            #e5e5e5
 
+input-group-addon-bg =           gray-lighter
 input-group-addon-border-color = input-border
 
 // Dropdowns
@@ -223,6 +230,10 @@ dropdown-link-hover-color =      #fff
 dropdown-link-hover-bg =         dropdown-link-active-bg
 
 dropdown-caret-color =           #000
+
+dropdown-link-disabled-color =   gray-light
+
+dropdown-header-color =          gray-light
 
 // COMPONENT VARIABLES
 // --------------------------------------------------
@@ -248,6 +259,7 @@ zindex-modal =             1050
 navbar-height =                    50px
 navbar-color =                     #777
 navbar-bg =                        #eee
+navbar-margin-bottom =             line-height-computed
 navbar-border-radius =             border-radius-base
 navbar-padding-horizontal =        floor(grid-gutter-width / 2)  // ~15px
 navbar-padding-vertical =          ((navbar-height - line-height-computed) / 2)
@@ -510,11 +522,13 @@ panel-info-heading-bg =       state-info-bg
 
 // Thumbnails
 // -------------------------
-thumbnail-caption-color =     text-color
+thumbnail-padding =           4px
 thumbnail-bg =                body-bg
 thumbnail-border =            #ddd
 thumbnail-border-radius =     border-radius-base
 
+thumbnail-caption-color =     text-color
+thumbnail-caption-padding =   9px
 
 // Wells
 // -------------------------
@@ -573,7 +587,9 @@ code-color =                  #c7254e
 code-bg =                     #f9f2f4
 
 pre-bg =                      #f5f5f5
+pre-color =                   gray-dark
 pre-border-color =            #ccc
+pre-scrollable-max-height =   340px
 
 // Type
 // ------------------------

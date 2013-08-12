@@ -6,7 +6,7 @@
   display inline
   padding .25em .6em
   font-size 75%
-  font-weight 500
+  font-weight bold
   line-height 1
   color label-color
   text-align center
@@ -21,6 +21,10 @@
       color label-link-hover-color
       text-decoration none
       cursor pointer
+    // Empty labels collapse automatically (not available in IE8)
+  &:empty 
+    display none
+  
 
 // Colors
 // Contextual variations (linked labels get darker on :hover)

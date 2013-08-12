@@ -19,8 +19,9 @@ $grid-columns-base
   padding-right (grid-gutter-width / 2)
 
 for i in (1..12)
-  .col-{i}
+  .col-xs-{i}
   .col-sm-{i}
+  .col-md-{i}
   .col-lg-{i}
     @extend $grid-columns-base
 
@@ -33,15 +34,18 @@ $float-left
   float left
 
 for i in (1..12)
-  .col-{i}
+  .col-xs-{i}
     @extend $float-left  
     width ((i / grid-columns)*100)%
 
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
 
-// Small device columns (phones to tablets)
-@media media-tablet-minmax
+@media media-screen-tablet
   .container 
-    max-width: container-tablet
+    max-width container-tablet
   
   $float-left-screen-tablet
     float left
@@ -50,7 +54,8 @@ for i in (1..12)
     .col-sm-{i}
       @extend $float-left-screen-tablet  
       width ((i / grid-columns)*100)%
-  
+
+@media media-tablet-minmax  
   // Push and pull columns for source order changes
   for i in (1..11)
     .col-sm-push-{i}
@@ -60,7 +65,10 @@ for i in (1..12)
     .col-sm-offset-{i}
       margin-left ((i / grid-columns)*100)%
     
-// // Medium and large device columns (desktop and up)
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
 @media media-screen-desktop
   .container 
      max-width container-desktop
@@ -69,8 +77,34 @@ for i in (1..12)
     float left
 
   for i in (1..12)
-    .col-lg-{i}
+    .col-md-{i}
       @extend $float-left-screen-desktop  
+      width ((i / grid-columns)*100)%
+
+@media media-desktop-minmax  
+  // Push ,pull and offsets columns for source order changes
+  for i in (1..11)
+    .col-md-push-{i}
+      left ((i / grid-columns)*100)%  
+    .col-md-pull-{i}
+      right ((i / grid-columns)*100)%  
+    .col-md-offset-{i}
+      margin-left ((i / grid-columns)*100)%  
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media media-screen-large-desktop
+  .container 
+    max-width container-large-desktop
+  
+  $float-left-large-screen-desktop
+    float left
+
+  for i in (1..12)
+    .col-lg-{i}
+      @extend $float-left-large-screen-desktop  
       width ((i / grid-columns)*100)%
   
   // Push ,pull and offsets columns for source order changes
@@ -81,9 +115,3 @@ for i in (1..12)
       right ((i / grid-columns)*100)%  
     .col-lg-offset-{i}
       margin-left ((i / grid-columns)*100)%  
-
-@media media-screen-large-desktop
-  .container 
-    max-width: container-large-desktop
-  
-

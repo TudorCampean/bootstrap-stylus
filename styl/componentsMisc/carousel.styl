@@ -53,8 +53,6 @@
     left 100%
   
 // Left/right controls for nav
-// ---------------------------
-
 .carousel-control 
   position absolute
   top 0
@@ -86,7 +84,6 @@
   
 
   // Toggles
-  .glyphicon
   .icon-prev
   .icon-next 
     position absolute
@@ -99,19 +96,17 @@
     margin-top -10px
     margin-left -10px
     font-family serif
-  // Non-glyphicon toggles
+
   .icon-prev 
     &:before 
       content '\2039'// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
-    
   
   .icon-next 
     &:before 
       content '\203a'// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
 
 // Optional indicator pips
-// -----------------------------
-//
+// 
 // Add an unordered list with the following class and add a list item for each
 // slide your carousel holds.
 
@@ -141,7 +136,7 @@
     background-color carousel-indicator-active-bg
 
 // Optional captions
-// -----------------------------
+// 
 // Hidden by default for smaller viewports
 .carousel-caption 
   position absolute
@@ -162,7 +157,6 @@
 @media screen-media-screen-tablet
 
   // Scale up the controls a smidge
-  .carousel-control .glyphicon
   .carousel-control .icon-prev
   .carousel-control .icon-next 
     width 30px

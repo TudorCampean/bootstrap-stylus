@@ -4,7 +4,6 @@
 
 
 // Dropdown arrow/caret
-// --------------------
 .caret 
   display inline-block
   width 0
@@ -17,12 +16,10 @@
   content ""
 
 // The dropdown wrapper (div)
-// --------------------------
 .dropdown 
   position relative
 
 // The dropdown menu (ul)
-// ----------------------
 .dropdown-menu 
   position absolute
   top 100%
@@ -39,7 +36,7 @@
   border 1px solid dropdown-border
   border-radius border-radius-base
   box-shadow(0 6px 12px rgba(0,0,0,.175))
-  background-clip(padding-box)
+  background-clip padding-box
 
   // Aligns the dropdown menu to right
   &.pull-right 
@@ -61,7 +58,6 @@
     white-space nowrap // prevent links from randomly breaking onto new lines
 
 // Hover/Focus state
-// -----------
 .dropdown-menu > li > a 
   &:hover
   &:focus 
@@ -71,7 +67,6 @@
     background-color darken(dropdown-link-hover-bg, 5)
 
 // Active state
-// ------------
 .dropdown-menu > .active > a 
   &
   &:hover
@@ -81,14 +76,15 @@
     outline 0
     gradient-vertical(dropdown-link-active-bg ,, darken(dropdown-link-active-bg, 5))
     background-color darken(dropdown-link-active-bg, 5)
+
 // Disabled state
-// --------------
+// 
 // Gray out text and ensure the hover/focus state remains gray
 .dropdown-menu > .disabled > a 
   &
   &:hover
   &:focus 
-    color gray-light
+    color dropdown-link-disabled-color
 
 // Nuke hover/focus effects
 .dropdown-menu > .disabled > a 
@@ -101,7 +97,6 @@
     cursor not-allowed
 
 // Open state for the dropdown
-// ---------------------------
 .open 
   // Show the menu
   > .dropdown-menu 
@@ -112,17 +107,15 @@
     outline 0
 
 // Dropdown section headers
-// ---------------------------
 .dropdown-header 
   display block
   padding 3px 20px
   font-size font-size-small
   line-height line-height-base
-  color gray-light
+  color dropdown-header-color
 
 
 // Backdrop to catch body clicks on mobile, etc.
-// ---------------------------
 .dropdown-backdrop 
   position fixed
   left 0
@@ -133,15 +126,15 @@
 
 
 // Right aligned dropdowns
-// ---------------------------
 .pull-right > .dropdown-menu 
   right 0
   left auto
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
-// ------------------------------------------------------
+// 
 // Just add .dropup after the standard .dropdown class and you're set, bro.
 // TODO: abstract this so that the navbar fixed styles are not placed here?
+
 .dropup
 .navbar-fixed-bottom .dropdown 
   // Reverse the caret

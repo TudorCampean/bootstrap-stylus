@@ -71,8 +71,9 @@ module.exports = (grunt) ->
     connect:
       server:
         options:
+          hostname: "*"
           port: 3000
-          base: '_gh_pages'
+          base: '_site'
           keepalive:true
     # copy:
     #   files:
@@ -107,11 +108,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-html-validation'
   grunt.loadNpmTasks 'grunt-jekyll'
-  
+
   # Docs HTML validation task
   grunt.registerTask 'validate-docs', ['jekyll', 'validation']
-  grunt.registerTask 'js', ['jshint','concat','uglify']
+  grunt.registerTask 'dist-js', ['jshint','concat','uglify']
   grunt.registerTask 'dist-css', ['stylus','cssmin']
-  #grunt.registerTask 'default', ['stylus','cssmin','jshint','concat','uglify']
+  grunt.registerTask 'dist', ['dist-css','dist-js']
   grunt.registerTask 'default', ['stylus','cssmin']
 

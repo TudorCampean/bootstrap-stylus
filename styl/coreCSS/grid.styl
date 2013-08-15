@@ -29,19 +29,31 @@ for i in (1..12)
 // Container and grid column sizing
 //
 
-// Extra small device columns (smartphones)
+// Extra small grid
+//
+// Grid classes for extra small devices like smartphones. No offset, push, or
+// pull classes are present here due to the size of the target.
+//
+// Note that `.col-xs-12` doesn't get floated on purpose—there's no need since
+// it's full-width.
 $float-left
   float left
 
-for i in (1..12)
+for i in (1..11)
   .col-xs-{i}
     @extend $float-left  
     width ((i / grid-columns)*100)%
+
+.col-xs-12
+  width 100%
 
 // Small grid
 //
 // Columns, offsets, pushes, and pulls for the small device range, from phones
 // to tablets.
+//
+// Note that `.col-sm-12` doesn't get floated on purpose—there's no need since
+// it's full-width..
 
 @media media-screen-tablet
   .container 
@@ -50,12 +62,14 @@ for i in (1..12)
   $float-left-screen-tablet
     float left
 
-  for i in (1..12)
+  for i in (1..11)
     .col-sm-{i}
       @extend $float-left-screen-tablet  
       width ((i / grid-columns)*100)%
 
-@media media-tablet-minmax  
+  .col-sm-12
+    width 100%  
+
   // Push and pull columns for source order changes
   for i in (1..11)
     .col-sm-push-{i}
@@ -64,11 +78,13 @@ for i in (1..12)
       right ((i / grid-columns)*100)%  
     .col-sm-offset-{i}
       margin-left ((i / grid-columns)*100)%
-    
+
 // Medium grid
 //
 // Columns, offsets, pushes, and pulls for the desktop device range.
-
+//
+// Note that `.col-md-12` doesn't get floated on purpose—there's no need since
+// it's full-width.
 @media media-screen-desktop
   .container 
      max-width container-desktop
@@ -76,12 +92,14 @@ for i in (1..12)
   $float-left-screen-desktop
     float left
 
-  for i in (1..12)
+  for i in (1..11)
     .col-md-{i}
       @extend $float-left-screen-desktop  
       width ((i / grid-columns)*100)%
 
-@media media-desktop-minmax  
+  .col-md-12
+    width 100%
+
   // Push ,pull and offsets columns for source order changes
   for i in (1..11)
     .col-md-push-{i}
@@ -94,7 +112,9 @@ for i in (1..12)
 // Large grid
 //
 // Columns, offsets, pushes, and pulls for the large desktop device range.
-
+//
+// Note that `.col-lg-12` doesn't get floated on purpose—there's no need since
+// it's full-width.
 @media media-screen-large-desktop
   .container 
     max-width container-large-desktop
@@ -102,11 +122,13 @@ for i in (1..12)
   $float-left-large-screen-desktop
     float left
 
-  for i in (1..12)
+  for i in (1..11)
     .col-lg-{i}
       @extend $float-left-large-screen-desktop  
       width ((i / grid-columns)*100)%
   
+  .col-lg-12
+    width 100%
   // Push ,pull and offsets columns for source order changes
   for i in (1..11)
     .col-lg-push-{i}

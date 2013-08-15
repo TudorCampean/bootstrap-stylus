@@ -3,6 +3,17 @@
   "description": "Port of Twitter Bootstrap 3.0.0-WIP to stylus",
   "author": "TudorCampean <tudor.campean@webappsproduction.com>",
   "version": "0.0.1",
+  "scripts": { "test": "grunt test" },
+  "repository": {
+      "type": "git"
+    , "url": "https://github.com/TudorCampean/bootstrap-STYLUS.git"
+  },
+  "licenses": [
+    {
+        "type": "Apache-2.0"
+      , "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "dependencies": {
     "express": "*",
     "jade": "*",
@@ -15,6 +26,8 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-watch": "~0.5.1",
+    "grunt-html-validation": "git://github.com/praveenvijayan/grunt-html-validation.git",
+    "grunt-jekyll": "~0.3.8",
     "coffee-script": "~1.6.3",
     "grunt-contrib-coffee": "~0.7.0"
   },

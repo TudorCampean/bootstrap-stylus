@@ -282,9 +282,8 @@ reset-filter()
   filter unquote("progid:DXImageTransform.Microsoft.gradient(enabled = false)")
 
 
-// RETINA IMAGE SUPPORT
-// --------------------------------------------------
-
+// Retina images
+//
 // Short retina mixin for setting background-image and -size
 img-retina(file-1x, file-2x, width-1x, height-1x) 
   background-image: url("{file-1x}")
@@ -293,6 +292,13 @@ img-retina(file-1x, file-2x, width-1x, height-1x)
     background-image url("{file-2x}")
     background-size width-1x height-1x
 
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+img-responsive(display = block) 
+  display display
+  max-width 100% // Part 1: Set a maximum relative to the parent
+  height auto // Part 2: Scale the height according to the width, otherwise you get stretching
 
 // COMPONENT MIXINS
 // --------------------------------------------------
@@ -366,9 +372,14 @@ button-variant(color, background, border)
   &:focus
   &:active
   &.active
+  .open .dropdown-toggle& 
     color color 
-    background-color: darken(background, 8)
-    border-color: darken(border, 12)
+    background-color darken(background, 8)
+    border-color darken(border, 12)
+  &:active,
+  &.active,
+  .open .dropdown-toggle& 
+    background-image none
   &.disabled
   &[disabled]
   fieldset[disabled] & 
@@ -458,34 +469,26 @@ responsive-invisibility()
 container-fixed() 
   margin-right auto
   margin-left auto
+  padding-left  (grid-gutter-width / 2)
+  padding-right (grid-gutter-width / 2)
   clearfix()
 
 // Creates a wrapper for a series of columns
 make-row(gutter = grid-gutter-width) 
-  // Then clear the floated columns
+  margin-left  (gutter / -2)
+  margin-right (gutter / -2)
   clearfix()
-
-  @media media-screen-small
-    .container &
-      margin-left  (gutter / -2)
-      margin-right (gutter / -2)
-  // Negative margin nested rows out to align the content of columns
-  .row 
-    margin-left:  (gutter / -2)
-    margin-right: (gutter / -2)
 
 // Generate the extra small columns
 make-xs-column(columns , gutter = grid-gutter-width) 
   position relative
   float left
+  width ((columns / grid-columns)*100)%
   // Prevent columns from collapsing when empty
   min-height 1px
   // Inner gutter via padding
   padding-left  (gutter / 2)
   padding-right (gutter / 2)
-  // Calculate width based on number of columns available
-  @media media-screen-small-max
-    width ((columns / grid-columns)*100)%
 
 // Generate the small columns
 make-sm-column(columns, gutter = grid-gutter-width) 
@@ -496,21 +499,21 @@ make-sm-column(columns, gutter = grid-gutter-width)
   padding-left  (gutter / 2)
   padding-right (gutter / 2)
   // Calculate width based on number of columns available
-  @media media-screen-small
+  @media media-screen-sm
     float left
     width ((columns / grid-columns)*100)%
 
 // Generate the small column offsets
 make-sm-column-offset(columns) 
-  @media media-screen-tablet
+  @media media-screen-sm
     margin-left ((columns / grid-columns)*100)%
 
 make-sm-column-push(columns) 
-  @media media-screen-tablet
+  @media media-screen-sm
     left ((columns / grid-columns)*100)%
 
 make-sm-column-pull(columns) 
-  @media media-screen-tablet
+  @media media-screen-sm
     right ((columns / grid-columns)*100)%
 
 // Generate the medium columns
@@ -522,20 +525,20 @@ make-md-column(columns , gutter = grid-gutter-width)
   padding-left  (gutter / 2)
   padding-right (gutter / 2)
   // Calculate width based on number of columns available
-  @media media-screen-medium
+  @media media-screen-md
     width ((columns / grid-columns)*100)%
 
 // Generate the large column offsets
 make-md-column-offset(columns) 
-  @media media-screen-medium
+  @media media-screen-md
     margin-left ((columns / grid-columns)*100)%
 
 make-md-column-push(columns) 
-  @media media-screen-medium
+  @media media-screen-md
     left ((columns / grid-columns)*100)%
 
 make-md-column-pull(columns) 
-  @media media-screen-medium
+  @media media-screen-md
     right ((columns / grid-columns)*100)%
 
 // Generate the large columns
@@ -547,21 +550,21 @@ make-lg-column(columns, gutter= grid-gutter-width)
   padding-left  (gutter / 2)
   padding-right (gutter / 2)
   // Calculate width based on number of columns available
-  @media media-screen-large
+  @media media-screen-lg
     float left
     width ((columns / grid-columns)*100)%
 
 // Generate the large column offsets
 make-lg-column-offset(columns) 
-  @media media-screen-large
+  @media media-screen-lg
     margin-left ((columns / grid-columns)*100)%
 
 make-lg-column-push(columns) 
-  @media media-screen-large
+  @media media-screen-lg
     left ((columns / grid-columns)*100)%
 
 make-lg-column-pull(columns) 
-  @media media-screen-large
+  @media media-screen-lg
     right ((columns / grid-columns)*100)%
 
 // Form validation states

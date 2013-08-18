@@ -20,10 +20,8 @@ module.exports = (grunt) ->
       options:
         paths: [
           'styl/coreCSS'
-          'styl/componentsCommon'
-          'styl/componentsNav'
-          'styl/componentsPopover'
-          'styl/componentsMisc'
+          'styl/components'
+          'styl/componentsWithJavaScript'
         ]
         "include css":true
         compress:false
@@ -91,7 +89,7 @@ module.exports = (grunt) ->
           grunt.log.writeln 'Waiting for more changes...'
       scripts:
         files: 'styl/**/*.styl'
-        tasks: 'css'
+        tasks: 'dist-css'
     karma: 
       unit:
         configFile: 'karma.conf.js'

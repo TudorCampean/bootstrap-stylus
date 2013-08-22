@@ -11,6 +11,12 @@
 .modal-open 
   overflow hidden
 
+  // Account for hiding of scrollbar
+  body&,
+  .navbar-fixed-top,
+  .navbar-fixed-bottom 
+    margin-right 15px
+
 // Container that the modal scrolls within
 .modal 
   display none
@@ -27,8 +33,9 @@
   &.fade .modal-dialog 
     mtranslate(0, -25%)
     transition-transform(0.3s ease-out)
-  &.in  .modal-dialog 
-    translate(0, 0)
+
+  &.in .modal-dialog 
+    mtranslate(0, 0)
 
 // Shell div to position the modal with bottom padding
 .modal-dialog 

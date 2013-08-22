@@ -237,7 +237,7 @@ input-lg()
 
 .form-control-static 
   margin-bottom 0 // Remove default margin from `p`
-  padding-top padding-base-vertical
+  padding-top (padding-base-vertical + 1)
 
 // Help text
 //
@@ -295,16 +295,22 @@ form-inline()
 // --------------------------------------------------
 // Horizontal forms are built on grid classes.
 
-.form-horizontal .control-label
-.form-horizontal .radio-inline 
-.form-horizontal .checkbox-inline 
-  padding-top padding-base-vertical
-
 .form-horizontal 
+  // Consistent vertical alignment of labels, radios, and checkboxes
+  .control-label
+  .radio
+  .checkbox
+  .radio-inline
+  .checkbox-inline 
+    margin-top 0
+    margin-bottom 0
+    padding-top (padding-base-vertical + 1) // Default padding plus a border
+
+  // Make form groups behave like rows
   .form-group 
     make-row()
 
-// Only right align form labels here when the columns stop stacking
-@media media-screen-tablet
-  .form-horizontal .control-label 
-    text-align right
+  // Only right align form labels here when the columns stop stacking
+  @media media-screen-tablet
+    .control-label 
+      text-align right

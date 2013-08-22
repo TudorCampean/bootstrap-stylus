@@ -6,7 +6,7 @@
 .container 
   container-fixed()
 
-// Mobile-first defaults
+// mobile-first defaults
 .row 
   make-row()
 
@@ -105,7 +105,7 @@ for i in (1..11)
   .col-md-pull-0  
     right auto
   .col-md-offset-0
-    margin-left auto
+    margin-left 0
   // Push ,pull and offsets columns for source order changes
   for i in (1..11)
     .col-md-push-{i}
@@ -141,7 +141,7 @@ for i in (1..11)
   .col-lg-pull-0  
     right auto
   .col-lg-offset-0
-    margin-left auto
+    margin-left 0
   // Push ,pull and offsets columns for source order changes
   for i in (1..11)
     .col-lg-push-{i}

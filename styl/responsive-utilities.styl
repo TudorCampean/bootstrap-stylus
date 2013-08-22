@@ -36,91 +36,116 @@
   visibility hidden !important
 
 // Visibility utilities
+
 .visible-xs 
-  responsive-visibility()
-  @media media-tablet-minmax
-    responsive-invisibility()
-  
-  @media media-desktop-minmax
-    responsive-invisibility()
-  
-  @media media-screen-lg-desktop
-    responsive-invisibility()
+  responsive-invisibility()
+  @media media-phone-max
+    responsive-visibility()
+  &.visible-sm 
+    @media media-tablet-minmax
+      responsive-visibility()
+  &.visible-md 
+    @media media-desktop-minmax
+      responsive-visibility()
+  &.visible-lg 
+    @media media-screen-lg-desktop
+      responsive-visibility()
 
 .visible-sm 
   responsive-invisibility()
+  &.visible-xs 
+    @media media-phone-max
+      responsive-visibility()
   @media media-tablet-minmax
     responsive-visibility()
-  
-  @media media-desktop-minmax
-    responsive-invisibility()
-  
-  @media media-screen-lg-desktop
-    responsive-invisibility()
+  &.visible-md 
+    @media media-desktop-minmax
+      responsive-visibility()
+  &.visible-lg 
+    @media media-screen-lg-desktop
+      responsive-visibility()
 
 .visible-md 
   responsive-invisibility()
-  @media media-tablet-minmax
-    responsive-invisibility()
-  
+  &.visible-xs 
+    @media media-phone-max
+      responsive-visibility()
+  &.visible-sm 
+    @media media-tablet-minmax
+      responsive-visibility()
   @media media-desktop-minmax
     responsive-visibility()
-  
-  @media media-screen-lg-desktop
-    responsive-invisibility()
+  &.visible-lg 
+    @media media-screen-lg-desktop
+      responsive-visibility()
 
 .visible-lg 
   responsive-invisibility()
-  @media media-tablet-minmax
-    responsive-invisibility()
-  
-  @media media-desktop-minmax
-    responsive-invisibility()
-  
+  &.visible-xs 
+    @media media-phone-max
+      responsive-visibility()
+  &.visible-sm 
+    @media media-tablet-minmax
+      responsive-visibility()
+  &.visible-md 
+    @media media-desktop-minmax
+      responsive-visibility()
   @media media-screen-lg-desktop
     responsive-visibility()
 
 .hidden-xs 
-  responsive-invisibility()
-  @media media-tablet-minmax
-    responsive-visibility()
-  
-  @media media-desktop-minmax
-    responsive-visibility()
-  
-  @media media-screen-lg-desktop
-    responsive-visibility()
+  responsive-visibility()
+  @media media-phone-max
+    responsive-invisibility()
+  &.hidden-sm 
+    @media media-tablet-minmax
+      responsive-invisibility()
+  &.hidden-md 
+    @media media-desktop-minmax
+      responsive-invisibility()
+  &.hidden-lg 
+    @media media-screen-lg-desktop
+      responsive-invisibility()
 
 .hidden-sm 
   responsive-visibility()
+  &.hidden-xs 
+    @media media-phone-max
+      responsive-invisibility()
   @media media-tablet-minmax
     responsive-invisibility()
-  
-  @media media-desktop-minmax
-    responsive-visibility()
-  
-  @media media-screen-lg-desktop
-    responsive-visibility()
+  &.hidden-md 
+    @media media-desktop-minmax
+      responsive-invisibility()
+  &.hidden-lg 
+    @media media-screen-lg-desktop
+      responsive-invisibility()
 
 .hidden-md 
   responsive-visibility()
-  @media media-tablet-minmax
-    responsive-visibility()
-  
+  &.hidden-xs 
+    @media media-phone-max
+      responsive-invisibility()
+  &.hidden-sm 
+    @media media-tablet-minmax
+      responsive-invisibility()
   @media media-desktop-minmax
     responsive-invisibility()
-  
-  @media media-screen-lg-desktop
-    responsive-visibility()
+  &.hidden-lg 
+    @media media-screen-lg-desktop
+      responsive-invisibility()
 
 .hidden-lg 
   responsive-visibility()
-  @media media-tablet-minmax
-    responsive-visibility()
-  
-  @media media-desktop-minmax
-    responsive-visibility()
-  
+  &.hidden-xs 
+    @media media-phone-max
+      responsive-invisibility()
+  &.hidden-sm 
+    @media media-tablet-minmax
+      responsive-invisibility()
+  &.hidden-md 
+    @media media-desktop-minmax
+      responsive-invisibility()
   @media media-screen-lg-desktop
     responsive-invisibility()
 
